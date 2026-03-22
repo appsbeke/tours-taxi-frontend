@@ -1,183 +1,207 @@
-# Tours & Taxi Frontend
+# Tours & Taxi - Frontend
 
-A modern, production-ready Next.js 14 booking platform for ride-hailing and tour services.
+A modern, full-stack booking platform for rides and tours built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
-- **Multi-Portal Architecture**
-  - Customer Portal: Book rides/tours, track bookings, leave reviews
-  - Driver Portal: Accept rides, navigate, view earnings (coming soon)
-  - Guide Portal: Manage tours and schedules (coming soon)
-  - Admin Dashboard: Full system management (coming soon)
+### Multi-Portal Architecture
+- **Customer Portal** - Book rides and tours, manage bookings
+- **Driver Portal** - Accept rides, track earnings, manage schedule
+- **Guide Portal** - Manage tours, bookings, and earnings
+- **Admin Dashboard** - System management, analytics, and configuration
 
-- **Core Functionality**
-  - 🔐 Authentication (Login/Register with JWT)
-  - 🚗 Ride Booking with fare estimation
-  - 🗺️ Tour browsing and booking
-  - 📊 Real-time booking tracking
-  - 💳 Payment flow integration (Stripe-ready)
-  - ⭐ Reviews and ratings system
-  - 📱 Fully responsive, mobile-first design
+### Tech Stack
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + Shadcn/ui
+- **State Management:** Zustand + React Query
+- **Forms:** React Hook Form + Zod
+- **Charts:** Recharts
+- **Real-time:** Socket.io (ready)
 
-- **Technical Stack**
-  - Next.js 14 (App Router)
-  - TypeScript
-  - Tailwind CSS + Shadcn/ui components
-  - React Query for data fetching
-  - Zustand for state management
-  - React Hook Form + Zod for forms
-  - Framer Motion for animations
-  - Socket.io client for real-time features
+## 📦 Installation
 
-## 📦 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone <repository-url>
+# Clone repository
+git clone https://github.com/appsbeke/tours-taxi-frontend.git
 cd tours-taxi-frontend
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Set up environment variables:
-```bash
+# Set environment variables
 cp .env.example .env.local
-```
 
-Edit `.env.local` with your configuration:
-```env
-NEXT_PUBLIC_API_URL=https://tours-taxi-backend.onrender.com
-NEXT_PUBLIC_SOCKET_URL=https://tours-taxi-backend.onrender.com
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
-NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your_stripe_public_key
-```
-
-4. Run the development server:
-```bash
+# Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit `http://localhost:3000`
 
-## 🏗️ Project Structure
+## 🔧 Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_API_URL=https://tours-taxi-backend.onrender.com
+NEXT_PUBLIC_SOCKET_URL=https://tours-taxi-backend.onrender.com
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_key_here
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your_key_here
+```
+
+## 📱 Portals Overview
+
+### Customer Portal (`/customer`)
+- Dashboard with quick actions
+- Ride booking with fare estimation
+- Tour browsing and booking
+- Booking management
+
+### Driver Portal (`/driver`)
+- Dashboard with earnings stats
+- Ride request management
+- Active ride tracking
+- Earnings history
+- Schedule management
+- Vehicle profile
+
+### Guide Portal (`/guide`)
+- Dashboard with tour overview
+- Tour management
+- Schedule calendar
+- Booking management
+- Earnings tracking
+- Professional profile
+
+### Admin Dashboard (`/admin`)
+- System overview with charts
+- User management
+- Booking management
+- Vehicle fleet management
+- Tour catalog management
+- Pricing configuration
+- Analytics & reports
+- System settings
+
+## 🎨 UI Components
+
+Built with Shadcn/ui:
+- Button
+- Card
+- Input
+- Label
+- Select
+- Tabs
+- Dialog
+- Avatar
+- Dropdown Menu
+
+## 📊 Analytics
+
+Admin dashboard includes:
+- Revenue trend charts (Line)
+- User growth analysis (Bar)
+- Role distribution (Pie)
+- Real-time activity feed
+- System statistics
+
+## 🔐 Authentication
+
+- JWT-based authentication
+- Role-based access control
+- Protected routes
+- Auto-redirect by role
+
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+Or deploy via Vercel dashboard:
+1. Import GitHub repository
+2. Configure environment variables
+3. Deploy
+
+## 📝 Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
+
+## 🗂️ Project Structure
 
 ```
 tours-taxi-frontend/
-├── app/                      # Next.js App Router pages
-│   ├── customer/            # Customer portal pages
-│   ├── driver/              # Driver portal pages (coming soon)
-│   ├── guide/               # Guide portal pages (coming soon)
-│   ├── admin/               # Admin dashboard (coming soon)
-│   ├── login/               # Login page
-│   ├── register/            # Registration page
-│   └── page.tsx             # Landing page
-├── components/              # Reusable components
-│   ├── ui/                  # Shadcn/ui components
-│   └── protected-route.tsx  # Route protection wrapper
-├── hooks/                   # Custom React hooks
-│   ├── use-auth.ts         # Authentication hook
-│   ├── use-rides.ts        # Rides management hook
-│   └── use-tours.ts        # Tours management hook
-├── store/                   # Zustand state stores
-│   ├── auth-store.ts       # Authentication state
-│   └── booking-store.ts    # Booking state
-├── types/                   # TypeScript type definitions
-│   └── index.ts            # Shared types
-└── lib/                     # Utility functions
-    └── api-client.ts       # Axios API client
+├── app/
+│   ├── admin/          # Admin dashboard pages
+│   ├── customer/       # Customer portal pages
+│   ├── driver/         # Driver portal pages
+│   ├── guide/          # Guide portal pages
+│   ├── login/          # Login page
+│   ├── register/       # Registration page
+│   └── page.tsx        # Landing page
+├── components/
+│   ├── ui/             # Shadcn components
+│   └── protected-route.tsx
+├── hooks/              # Custom React hooks
+├── store/              # Zustand stores
+├── types/              # TypeScript definitions
+└── lib/                # Utilities
 ```
 
-## 🎨 Design Features
+## 🔗 API Integration
 
-- **Modern UI**: Clean, professional interface with smooth animations
-- **Dark Mode**: Full dark mode support
-- **Accessibility**: ARIA-compliant components
-- **Performance**: Optimized images, lazy loading, and code splitting
-- **Responsive**: Mobile-first design that works on all devices
+Backend API: `https://tours-taxi-backend.onrender.com`
 
-## 🔌 API Integration
+### Endpoints Used
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `GET /api/auth/me` - Current user
+- `GET /api/rides` - List rides
+- `POST /api/rides` - Create ride
+- `GET /api/tours` - List tours
+- `POST /api/tour-bookings` - Book tour
 
-The frontend connects to the Tours & Taxi backend API:
-- **Backend URL**: https://tours-taxi-backend.onrender.com
-- **API Docs**: https://tours-taxi-backend.onrender.com/api/docs
+## 🧪 Testing
 
-All API calls are handled through:
-- `lib/api-client.ts` - Axios client with auth interceptors
-- Custom hooks in `hooks/` directory
-- React Query for caching and state management
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import the project in Vercel
-3. Configure environment variables
-4. Deploy!
-
-Or use Vercel CLI:
 ```bash
-npm install -g vercel
-vercel
+# Type checking
+npx tsc --noEmit
+
+# Linting
+npm run lint
 ```
-
-### Environment Variables for Production
-
-Make sure to set these in your deployment platform:
-- `NEXT_PUBLIC_API_URL`
-- `NEXT_PUBLIC_SOCKET_URL`
-- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`
-- `NEXT_PUBLIC_STRIPE_PUBLIC_KEY`
-
-## 📝 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 🔐 User Roles
-
-- **Customer**: Book rides and tours, track bookings, leave reviews
-- **Driver**: Accept rides, navigate, view earnings
-- **Guide**: Manage tours, schedules, and bookings
-- **Admin**: Full system access and management
-
-## 🛠️ Tech Highlights
-
-- **Type Safety**: Full TypeScript coverage
-- **Form Validation**: Zod schemas with React Hook Form
-- **State Management**: Zustand for global state, React Query for server state
-- **Authentication**: JWT-based with secure token storage
-- **Real-time**: Socket.io for live updates (ride tracking, etc.)
-- **UI Components**: Shadcn/ui for consistent, accessible components
 
 ## 📄 License
 
-This project is part of the Tours & Taxi platform.
+MIT
 
-## 🤝 Contributing
+## 👥 Contributing
 
 1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a pull request
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📧 Support
+## 🐛 Issues
 
-For support, email support@tourstax i.com or open an issue in the repository.
+Report issues at: https://github.com/appsbeke/tours-taxi-frontend/issues
+
+## 📞 Support
+
+For questions or support, please open an issue on GitHub.
 
 ---
 
-Built with ❤️ using Next.js 14 and TypeScript
+**Built with ❤️ using Next.js**
