@@ -119,7 +119,7 @@ export default function BookingsPage() {
               <div className="text-center">
                 <MapPin className="h-16 w-16 mx-auto text-muted-foreground mb-4 opacity-30" />
                 <h3 className="text-xl font-semibold mb-2">No ride bookings</h3>
-                <p className="text-muted-foreground mb-4">You haven't booked any rides yet</p>
+                <p className="text-muted-foreground mb-4">You haven&apos;t booked any rides yet</p>
                 <Link href="/customer/book-ride">
                   <Button>Book Your First Ride</Button>
                 </Link>
@@ -203,7 +203,7 @@ export default function BookingsPage() {
               <div className="text-center">
                 <Calendar className="h-16 w-16 mx-auto text-muted-foreground mb-4 opacity-30" />
                 <h3 className="text-xl font-semibold mb-2">No tour bookings</h3>
-                <p className="text-muted-foreground mb-4">You haven't booked any tours yet</p>
+                <p className="text-muted-foreground mb-4">You haven&apos;t booked any tours yet</p>
                 <Link href="/customer/tours">
                   <Button>Explore Tours</Button>
                 </Link>

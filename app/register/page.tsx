@@ -12,6 +12,7 @@ import * as z from 'zod';
 import Link from 'next/link';
 import { Car } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 const registerSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -23,7 +24,7 @@ const registerSchema = z.object({
 
 type RegisterForm = z.infer<typeof registerSchema>;
 
-export default function RegisterPage() {
+function RegisterFormContent() {
   const searchParams = useSearchParams();
   const defaultRole = searchParams.get('role') as 'customer' | 'driver' | 'guide' || 'customer';
   
@@ -150,5 +151,13 @@ export default function RegisterPage() {
         </div>
       </Card>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <RegisterFormContent />
+    </Suspense>
   );
 }

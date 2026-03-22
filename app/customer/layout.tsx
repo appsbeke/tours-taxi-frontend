@@ -4,7 +4,7 @@ import { ProtectedRoute } from '@/components/protected-route';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/use-auth';
 import Link from 'next/link';
-import { Car, MapPin, Calendar, User, LogOut, Menu } from 'lucide-react';
+import { Car, LogOut, Menu } from 'lucide-react';
 import { useState } from 'react';
 
 export default function CustomerLayout({ children }: { children: React.ReactNode }) {

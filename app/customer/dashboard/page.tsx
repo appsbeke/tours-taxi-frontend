@@ -6,7 +6,7 @@ import { useAuthStore } from '@/store/auth-store';
 import { useRides } from '@/hooks/use-rides';
 import { useTours } from '@/hooks/use-tours';
 import Link from 'next/link';
-import { Car, MapPin, Calendar, Star, ArrowRight } from 'lucide-react';
+import { Car, MapPin, Calendar, ArrowRight } from 'lucide-react';
 
 export default function CustomerDashboard() {
   const { user } = useAuthStore();
